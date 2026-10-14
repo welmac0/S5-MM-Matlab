@@ -79,14 +79,14 @@ legend('dsolve', 'ode45')
 hold off
 
 %c
-syms t y(t) x(t)
-eqn = [
+syms t y(t) x(t) % funkcje symboliczne czasu
+eqn = [ % uklad dwoch rownan x' = y + t, y' = -x - 2
     diff(x,t) == y+t; 
     diff(y,t) == -x-2
     ] ;
-cnd = [y(0) == 4; x(0) == 10];
+cnd = [y(0) == 4; x(0) == 10]; % y(0) = 4, x(0) = 10. (rownosc symboliczna)
 
-xy_ds = dsolve(eqn, cnd);
+xy_ds = dsolve(eqn, cnd); % Rozwiązuje układ analitycznie. Zwraca strukturę z polami x i y.
 x_ds = xy_ds.x;
 y_ds = xy_ds.y;
 
